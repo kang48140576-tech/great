@@ -123,7 +123,7 @@
                 <a href="#details" class="btn-primary text-lg">
                     캠페인 자세히 보기
                 </a>
-                <a href="./01/great_x.html" class="btn-secondary text-lg">
+                <a href="..01/great_x.html" class="btn-secondary text-lg">
                     설문조사
                 </a>
             </div>
@@ -264,7 +264,21 @@
                         </div>
                     </div>
                     <div class="lg:w-2/3 p-8 flex items-center justify-center bg-[#bde0fe]">
-                        <img src="8.png" alt="카드뉴스 시안" class="w-full max-w-3xl h-auto rounded-xl shadow-2xl hover-zoom mx-auto object-cover aspect-video">
+                        <div class="relative w-full max-w-3xl mx-auto group">
+                            <img id="cardNewsImage" src="1.png" alt="카드뉴스 시안" class="w-full h-auto rounded-xl shadow-2xl mx-auto object-cover aspect-video bg-white transition-all duration-300">
+                            
+                            <button onclick="prevCard()" class="absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 bg-white text-gray-800 p-2 md:p-3 rounded-full shadow-lg opacity-90 hover:opacity-100 transition-all hover:bg-yellow-400 focus:outline-none z-10" aria-label="이전 이미지">
+                                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            
+                            <button onclick="nextCard()" class="absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 bg-white text-gray-800 p-2 md:p-3 rounded-full shadow-lg opacity-90 hover:opacity-100 transition-all hover:bg-yellow-400 focus:outline-none z-10" aria-label="다음 이미지">
+                                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+
+                            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-1.5 rounded-full text-sm font-bold z-10 shadow-md">
+                                <span id="cardCounter">1</span> / 6
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -454,6 +468,25 @@
                 });
             });
         });
+
+        const cards = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'];
+        let currentCardIndex = 0;
+
+        function updateCard() {
+            const img = document.getElementById('cardNewsImage');
+            img.src = cards[currentCardIndex];
+            document.getElementById('cardCounter').innerText = currentCardIndex + 1;
+        }
+
+        function prevCard() {
+            currentCardIndex = (currentCardIndex === 0) ? cards.length - 1 : currentCardIndex - 1;
+            updateCard();
+        }
+
+        function nextCard() {
+            currentCardIndex = (currentCardIndex === cards.length - 1) ? 0 : currentCardIndex + 1;
+            updateCard();
+        }
     </script>
 </body>
 </html>
