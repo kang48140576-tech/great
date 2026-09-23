@@ -86,6 +86,21 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(255, 184, 28, 0.4);
         }
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #112A46;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-secondary:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body class="text-gray-800 antialiased leading-relaxed">
@@ -104,9 +119,14 @@
                 지루한 장보기 동선을 '식재료 탐험 보물찾기 게임'으로 전환하여<br class="hidden md:block">
                 아이와 함께 즐거운 추억을 만들어보세요.
             </p>
-            <a href="#details" class="btn-primary text-lg">
-                캠페인 자세히 보기
-            </a>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#details" class="btn-primary text-lg">
+                    캠페인 자세히 보기
+                </a>
+                <a href="great_x.html" class="btn-secondary text-lg">
+                    설문조사
+                </a>
+            </div>
         </div>
     </header>
 
